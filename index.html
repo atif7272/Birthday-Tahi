@@ -1,46 +1,1146 @@
-You are a web developer specializing in creating elegant, interactive single-page HTML applications with sophisticated design.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Tahira ♡</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-Your task is to create a complete, single-file HTML webpage (all HTML, CSS, and JavaScript in one .html file) as a birthday wish for Tahira Bohio (Tahi)—a deeply meaningful sister figure in the user's life. This should feel personal, thoughtful, and genuinely memorable.
+        :root {
+            --deep-burgundy: #8B1538;
+            --rich-gold: #D4A574;
+            --warm-terracotta: #C8705A;
+            --emerald-teal: #2A6B5E;
+            --deep-plum: #5D3A4A;
+            --saffron: #E8A838;
+            --ivory: #FDF8F3;
+            --rose-gold: #B76E79;
+            --midnight: #1A1A2E;
+            --soft-pink: #F5E6E0;
+        }
 
-## Design & Aesthetic Requirements
+        html {
+            scroll-behavior: smooth;
+        }
 
-- **Modern and elegant design** with smooth animations and refined transitions
-- **Sindhi cultural aesthetic**: Incorporate traditional Sindhi patterns, color palettes inspired by Sindhi textiles (rich jewel tones, warm earth tones, vibrant accent colors), and subtle references to Sindhi heritage throughout the design
-- **Realistic and polished**—sophisticated, not amateur or overly decorative
-- **Responsive design** that works beautifully on both desktop and mobile devices
-- Typography and color scheme that balances contemporary sophistication with cultural warmth
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--ivory) 0%, var(--soft-pink) 50%, #F9EDE6 100%);
+            color: var(--midnight);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
 
-## Core Content
+        /* Sindhi Pattern Background */
+        .pattern-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            z-index: 0;
+            background-image: 
+                repeating-linear-gradient(45deg, var(--deep-burgundy) 0, var(--deep-burgundy) 1px, transparent 0, transparent 50%),
+                repeating-linear-gradient(-45deg, var(--deep-burgundy) 0, var(--deep-burgundy) 1px, transparent 0, transparent 50%);
+            background-size: 30px 30px;
+        }
 
-- A heartfelt birthday message expressing the deep, irreplaceable bond between you and Tahira
-- Include her name (Tahira Bohio) and/or the nickname (Tahi)
-- Today's date or her birthday date
-- Personal touches that convey she is "achi and nek" (good and noble)—reflect this in the messaging
+        /* Floating Sindhi Motifs */
+        .floating-motif {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.1;
+            z-index: 1;
+        }
 
-## Interactive Elements & Hidden Surprises
+        .motif-1, .motif-2, .motif-3, .motif-4 {
+            width: 150px;
+            height: 150px;
+            animation: floatMotif 20s ease-in-out infinite;
+        }
 
-Include **3-5 hidden interactive surprises** strategically placed throughout the page that users naturally discover as they explore:
+        .motif-1 {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
 
-- Clickable Easter eggs that reveal personal memories or meaningful messages
-- Hover effects that unveil heartfelt quotes or hidden text
-- Scroll-triggered animations (confetti, floating elements, reveals)
-- Interactive elements that appear with specific interactions
-- Optional: audio triggers, photo galleries, or other meaningful interactions
+        .motif-2 {
+            top: 60%;
+            right: 5%;
+            animation-delay: -5s;
+        }
 
-Make each surprise feel intentional and tied to your relationship—not random. The discoveries should enhance the emotional impact of the page.
+        .motif-3 {
+            top: 30%;
+            right: 10%;
+            animation-delay: -10s;
+        }
 
-## Technical Specifications
+        .motif-4 {
+            bottom: 20%;
+            left: 10%;
+            animation-delay: -15s;
+        }
 
-- **Single .html file only** (all CSS in `<style>` tags, all JavaScript in `<script>` tags)
-- **Vanilla JavaScript** only—no external libraries required
-- Smooth performance with no console errors
-- Optional: embed subtle sound effects or meaningful audio (can be triggered on interaction or as ambient background)
+        @keyframes floatMotif {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
 
-## Tone & Feeling
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
 
-- Warm, genuine, and celebratory
-- Elegant and sophisticated
-- Personal and meaningful—this should feel created specifically for Tahira, not a generic template
-- Reflect the depth and significance of your bond
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 1.5s ease-out;
+        }
 
-Generate the complete, production-ready HTML file that opens directly in any web browser and immediately displays the birthday wish webpage.
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .decorative-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .decorative-line span {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--rich-gold), transparent);
+        }
+
+        .decorative-line svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--rich-gold);
+        }
+
+        .pre-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--warm-terracotta);
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.8s forwards;
+        }
+
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--deep-burgundy), var(--rose-gold), var(--deep-burgundy));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease-in-out infinite, fadeInUp 1s ease-out 0.3s both;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .name-highlight {
+            display: block;
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .name-highlight:hover {
+            transform: scale(1.02);
+        }
+
+        .name-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--saffron), var(--rich-gold), var(--saffron));
+            transition: width 0.5s ease;
+            border-radius: 2px;
+        }
+
+        .name-highlight:hover::after {
+            width: 80%;
+        }
+
+        .nickname {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--emerald-teal);
+            margin: 1rem 0 2rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.2s forwards;
+        }
+
+        .date-badge {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, rgba(139, 21, 56, 0.1), rgba(212, 165, 116, 0.2));
+            border: 2px solid var(--rich-gold);
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--deep-plum);
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.5s forwards;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .date-badge:hover {
+            background: linear-gradient(135deg, rgba(139, 21, 56, 0.2), rgba(212, 165, 116, 0.3));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.15);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 2s forwards, bounce 2s ease-in-out infinite 2.5s;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-indicator span {
+            font-size: 0.8rem;
+            color: var(--deep-burgundy);
+            letter-spacing: 2px;
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--deep-burgundy);
+        }
+
+        /* Message Section */
+        .message-section {
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .message-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            box-shadow: 0 20px 60px rgba(93, 58, 74, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-container::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 15rem;
+            color: rgba(139, 21, 56, 0.05);
+            line-height: 1;
+        }
+
+        .message-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--deep-burgundy);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .message-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            line-height: 1.9;
+            color: var(--deep-plum);
+            text-align: center;
+        }
+
+        .message-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-text {
+            color: var(--deep-burgundy);
+            font-weight: 600;
+            position: relative;
+            cursor: help;
+        }
+
+        .highlight-text::after {
+            content: attr(data-message);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--deep-burgundy);
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-family: 'Poppins', sans-serif;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .highlight-text:hover::after {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Qualities Section */
+        .qualities-section {
+            padding: 4rem 2rem 6rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .qualities-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .qualities-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--deep-burgundy);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .qualities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .quality-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(93, 58, 74, 0.08);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quality-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--deep-burgundy), var(--saffron), var(--emerald-teal));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .quality-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(93, 58, 74, 0.15);
+        }
+
+        .quality-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .quality-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(139, 21, 56, 0.1), rgba(232, 168, 56, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .quality-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--deep-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .quality-card p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--deep-plum);
+            line-height: 1.6;
+        }
+
+        .quality-card .hidden-message {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, margin-top 0.5s ease;
+            margin-top: 0;
+        }
+
+        .quality-card.revealed .hidden-message {
+            max-height: 200px;
+            margin-top: 1rem;
+        }
+
+        .hidden-message span {
+            display: block;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(139, 21, 56, 0.05), rgba(42, 107, 94, 0.05));
+            border-radius: 10px;
+            font-style: italic;
+            color: var(--emerald-teal);
+        }
+
+        /* Interactive Elements */
+        .interactive-heart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--deep-burgundy), var(--rose-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(139, 21, 56, 0.3);
+        }
+
+        .interactive-heart:hover {
+            transform: scale(1.1);
+        }
+
+        .interactive-heart svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .interactive-heart.pulse {
+            animation: heartPulse 0.6s ease;
+        }
+
+        @keyframes heartPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* Hidden Memory Modal */
+        .memory-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .memory-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .memory-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 30px;
+            max-width: 500px;
+            margin: 2rem;
+            text-align: center;
+            transform: scale(0.8) translateY(50px);
+            transition: transform 0.4s ease;
+        }
+
+        .memory-modal.active .memory-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .memory-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--deep-burgundy);
+            margin-bottom: 1.5rem;
+        }
+
+        .memory-content p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--deep-plum);
+            margin-bottom: 2rem;
+        }
+
+        .close-memory {
+            background: linear-gradient(135deg, var(--deep-burgundy), var(--rose-gold));
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .close-memory:hover {
+            transform: scale(1.05);
+        }
+
+        /* Final Section */
+        .final-section {
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .wish-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .wish-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--deep-burgundy);
+            margin-bottom: 2rem;
+        }
+
+        .wish-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: var(--deep-plum);
+            margin-bottom: 3rem;
+        }
+
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--emerald-teal);
+            font-style: italic;
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            z-index: 1000;
+            animation: confettiFall 4s ease-out forwards;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Secret Click Counter */
+        .secret-zone {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .secret-zone:hover {
+            opacity: 0.8;
+        }
+
+        .secret-zone svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--rich-gold);
+        }
+
+        /* Sindhi Pattern SVG */
+        .sindhi-pattern {
+            position: absolute;
+            opacity: 0.05;
+        }
+
+        /* Star Burst Animation */
+        .star-burst {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            animation: starBurst 0.8s ease-out forwards;
+        }
+
+        @keyframes starBurst {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .message-container {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .message-text {
+                font-size: 1.2rem;
+            }
+
+            .qualities-grid {
+                gap: 1.5rem;
+            }
+
+            .quality-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .floating-motif {
+                display: none;
+            }
+
+            .interactive-heart {
+                top: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .memory-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+        }
+
+        /* Fade In Animation for Scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Special Glow Effect */
+        .glow-effect {
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 5px rgba(139, 21, 56, 0.3));
+            }
+            50% {
+                filter: drop-shadow(0 0 20px rgba(139, 21, 56, 0.6));
+            }
+        }
+
+        /* Ribbon Decoration */
+        .ribbon {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: linear-gradient(135deg, var(--saffron), var(--rich-gold));
+            color: white;
+            padding: 0.5rem 3rem;
+            font-size: 0.8rem;
+            transform: rotate(45deg);
+            font-weight: 500;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Pattern Overlay -->
+    <div class="pattern-overlay"></div>
+
+    <!-- Floating Sindhi Motifs -->
+    <svg class="floating-motif motif-1" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45" fill="none" stroke="#8B1538" stroke-width="2"/>
+        <path d="M50 10 L50 90 M10 50 L90 50 M21 21 L79 79 M79 21 L21 79" stroke="#D4A574" stroke-width="1.5"/>
+        <circle cx="50" cy="50" r="20" fill="none" stroke="#2A6B5E" stroke-width="1.5"/>
+    </svg>
+
+    <svg class="floating-motif motif-2" viewBox="0 0 100 100">
+        <polygon points="50,5 95,50 50,95 5,50" fill="none" stroke="#8B1538" stroke-width="2"/>
+        <circle cx="50" cy="50" r="25" fill="none" stroke="#D4A574" stroke-width="1.5"/>
+        <circle cx="50" cy="50" r="10" fill="#C8705A" opacity="0.3"/>
+    </svg>
+
+    <svg class="floating-motif motif-3" viewBox="0 0 100 100">
+        <path d="M50 5 C75 25, 95 50, 75 75 C50 95, 25 75, 5 50 C25 25, 25 25, 50 5" fill="none" stroke="#8B1538" stroke-width="2"/>
+        <circle cx="50" cy="40" r="15" fill="none" stroke="#2A6B5E" stroke-width="1.5"/>
+    </svg>
+
+    <svg class="floating-motif motif-4" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#D4A574" stroke-width="2"/>
+        <path d="M50 15 Q65 35 50 50 Q35 65 50 85 Q35 65 50 50 Q65 35 50 15" stroke="#8B1538" stroke-width="1.5" fill="none"/>
+    </svg>
+
+    <!-- Interactive Heart -->
+    <div class="interactive-heart" id="heartBtn" title="Click for a surprise!">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+    </div>
+
+    <!-- Secret Zone -->
+    <div class="secret-zone" id="secretZone" title="...">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="decorative-line">
+                <span></span>
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span></span>
+            </div>
+            
+            <p class="pre-title">A CELEBRATION OF</p>
+            
+            <h1 class="main-title">
+                Happy Birthday
+                <span class="name-highlight glow-effect" id="nameHighlight">Tahira Bohio</span>
+            </h1>
+            
+            <p class="nickname">~ Tahi ~</p>
+            
+            <div class="date-badge" id="dateBadge">
+                January 2025
+            </div>
+        </div>
+
+        <div class="scroll-indicator" id="scrollIndicator">
+            <span>SCROLL</span>
+            <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section class="message-section fade-in-section">
+        <div class="message-container">
+            <div class="ribbon">Special Day</div>
+            <h2 class="message-title">Dear Tahi,</h2>
+            <div class="message-text">
+                <p>
+                    On this beautiful day, I celebrate not just your birthday, but the 
+                    <span class="highlight-text" data-message="Every moment with you is a treasure">incredible blessing</span> 
+                    of having you in my life. You are more than a sister—you are my 
+                    <span class="highlight-text" data-message="A bond that transcends blood">confidante, my guide, my home</span>.
+                </p>
+                <p>
+                    Your heart radiates with the purest form of goodness. You are truly 
+                    <span class="highlight-text" data-message="'Achi aur Nek' - Good and Noble in every way">achi aur nek</span>—
+                    good and noble in every sense. Your kindness flows effortlessly, your wisdom guides gently, and your love knows no bounds.
+                </p>
+                <p>
+                    In our Sindhi heritage, we cherish bonds that transcend time. Our connection is woven with threads of 
+                    <span class="highlight-text" data-message="Rooted in tradition, growing in love">shared traditions, laughter, and countless memories</span> 
+                    that make life beautiful.
+                </p>
+                <p>
+                    May this new year of your life bring you all the happiness you so freely give to others. 
+                    May your path be illuminated with joy, your heart filled with peace, and your days blessed with love.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualities Section -->
+    <section class="qualities-section fade-in-section">
+        <div class="qualities-container">
+            <h2 class="qualities-title">The Beautiful Soul That You Are</h2>
+            <div class="qualities-grid">
+                <div class="quality-card" data-memory="Your compassion touches everyone around you. You feel deeply and love unconditionally.">
+                    <div class="quality-icon">♡</div>
+                    <h3>Compassionate Heart</h3>
+                    <p>Your empathy and warmth make everyone feel seen and valued.</p>
+                    <div class="hidden-message">
+                        <span>Click to reveal a personal message...</span>
+                    </div>
+                </div>
+
+                <div class="quality-card" data-memory="Your strength inspires me daily. You face challenges with grace and emerge stronger.">
+                    <div class="quality-icon">✧</div>
+                    <h3>Inner Strength</h3>
+                    <p>Resilient and graceful, you navigate life's journeys with courage.</p>
+                    <div class="hidden-message">
+                        <span>Click to reveal a personal message...</span>
+                    </div>
+                </div>
+
+                <div class="quality-card" data-memory="Your wisdom has guided me through countless moments. You are my north star.">
+                    <div class="quality-icon">❋</div>
+                    <h3>Wisdom & Guidance</h3>
+                    <p>Your insights illuminate paths and your advice is a treasured gift.</p>
+                    <div class="hidden-message">
+                        <span>Click to reveal a personal message...</span>
+                    </div>
+                </div>
+
+                <div class="quality-card" data-memory="The joy you bring is immeasurable. Your laughter is the best medicine.">
+                    <div class="quality-icon">✿</div>
+                    <h3>Joyful Spirit</h3>
+                    <p>Your laughter is contagious and your presence lights up every room.</p>
+                    <div class="hidden-message">
+                        <span>Click to reveal a personal message...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Section -->
+    <section class="final-section fade-in-section">
+        <div class="wish-container">
+            <h2 class="wish-title">My Wish For You</h2>
+            <p class="wish-text">
+                May every sunrise bring you hope,<br>
+                May every sunset bring you peace,<br>
+                May every moment be filled with love,<br>
+                And may you always know how deeply you are cherished.
+            </p>
+            <p class="wish-text" style="font-size: 1.3rem; margin-bottom: 1rem;">
+                Happy Birthday, Tahi! ♡
+            </p>
+            <p class="signature">With all my love and heartfelt wishes</p>
+        </div>
+    </section>
+
+    <!-- Memory Modal -->
+    <div class="memory-modal" id="memoryModal">
+        <div class="memory-content">
+            <h3 id="memoryTitle">A Special Memory</h3>
+            <p id="memoryText">Memory content will appear here...</p>
+            <button class="close-memory" id="closeMemory">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const heartBtn = document.getElementById('heartBtn');
+        const secretZone = document.getElementById('secretZone');
+        const nameHighlight = document.getElementById('nameHighlight');
+        const dateBadge = document.getElementById('dateBadge');
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        const memoryModal = document.getElementById('memoryModal');
+        const memoryTitle = document.getElementById('memoryTitle');
+        const memoryText = document.getElementById('memoryText');
+        const closeMemory = document.getElementById('closeMemory');
+        const qualityCards = document.querySelectorAll('.quality-card');
+        const fadeSections = document.querySelectorAll('.fade-in-section');
+
+        // Hidden Messages / Memories
+        const memories = [
+            { title: "A Treasured Bond", text: "You've been there through every high and low. Your presence makes everything better. Thank you for being you, Tahi." },
+            { title: "Sisterhood", text: "Not by blood, but by heart—you are my sister in every way that matters. Our bond is eternal." },
+            { title: "Gratitude", text: "I am endlessly grateful for your existence. The world is brighter because you're in it." },
+            { title: "Sindhi Heritage", text: "Our shared roots make our bond even more special. Together, we carry forward traditions of love and family." },
+            { title: "Forever Yours", text: "No distance, no time can diminish what we share. You are family, today and always." }
+        ];
+
+        // Secret click counter
+        let secretClicks = 0;
+
+        // Create confetti
+        function createConfetti(count = 50) {
+            const colors = ['#8B1538', '#D4A574', '#E8A838', '#2A6B5E', '#B76E79', '#C8705A'];
+            
+            for (let i = 0; i < count; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                confetti.style.height = (Math.random() * 10 + 5) + 'px';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 4000);
+            }
+        }
+
+        // Create star burst effect
+        function createStarBurst(x, y) {
+            const colors = ['#8B1538', '#D4A574', '#E8A838'];
+            
+            for (let i = 0; i < 12; i++) {
+                const star = document.createElement('div');
+                star.className = 'star-burst';
+                star.style.left = x + 'px';
+                star.style.top = y + 'px';
+                star.style.width = '20px';
+                star.style.height = '20px';
+                star.style.backgroundColor = colors[i % colors.length];
+                star.style.borderRadius = '50%';
+                star.style.transform = `rotate(${i * 30}deg) translateX(30px)`;
+                document.body.appendChild(star);
+                
+                setTimeout(() => star.remove(), 800);
+            }
+        }
+
+        // Show memory modal
+        function showMemory(index) {
+            const memory = memories[index % memories.length];
+            memoryTitle.textContent = memory.title;
+            memoryText.textContent = memory.text;
+            memoryModal.classList.add('active');
+        }
+
+        // Close memory modal
+        closeMemory.addEventListener('click', () => {
+            memoryModal.classList.remove('active');
+        });
+
+        memoryModal.addEventListener('click', (e) => {
+            if (e.target === memoryModal) {
+                memoryModal.classList.remove('active');
+            }
+        });
+
+        // Surprise 1: Heart click - shows random memory and confetti
+        let heartClicks = 0;
+        heartBtn.addEventListener('click', (e) => {
+            heartBtn.classList.add('pulse');
+            setTimeout(() => heartBtn.classList.remove('pulse'), 600);
+            
+            heartClicks++;
+            createConfetti(30);
+            createStarBurst(e.clientX, e.clientY);
+            
+            if (heartClicks >= 3) {
+                showMemory(heartClicks - 1);
+            }
+        });
+
+        // Surprise 2: Name hover - glow intensifies and shows message
+        nameHighlight.addEventListener('click', () => {
+            createConfetti(80);
+            showMemory(0);
+        });
+
+        // Surprise 3: Date badge click - cycles through special messages
+        const dateMessages = [
+            "January 2025",
+            "A Day to Celebrate You! ♡",
+            "Your Special Day",
+            "Making Memories Today",
+            "جي مبارڪ توهان کي!" // Sindhi greeting
+        ];
+        let dateMessageIndex = 0;
+        dateBadge.addEventListener('click', () => {
+            dateMessageIndex = (dateMessageIndex + 1) % dateMessages.length;
+            dateBadge.textContent = dateMessages[dateMessageIndex];
+            dateBadge.style.transform = 'scale(1.1)';
+            setTimeout(() => dateBadge.style.transform = '', 300);
+        });
+
+        // Surprise 4: Quality cards reveal hidden messages
+        qualityCards.forEach((card, index) => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('revealed');
+                const hiddenMsg = card.querySelector('.hidden-message span');
+                
+                if (card.classList.contains('revealed')) {
+                    hiddenMsg.textContent = card.dataset.memory;
+                    createStarBurst(
+                        card.getBoundingClientRect().left + card.offsetWidth / 2,
+                        card.getBoundingClientRect().top
+                    );
+                } else {
+                    hiddenMsg.textContent = 'Click to reveal a personal message...';
+                }
+            });
+        });
+
+        // Surprise 5: Secret zone - triple click for special message
+        secretZone.addEventListener('click', () => {
+            secretClicks++;
+            
+            if (secretClicks >= 5) {
+                showMemory(4);
+                createConfetti(100);
+                secretClicks = 0;
+            }
+        });
+
+        // Scroll indicator click
+        scrollIndicator.addEventListener('click', () => {
+            document.querySelector('.message-section').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Intersection Observer for fade-in sections
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeSections.forEach(section => observer.observe(section));
+
+        // Initial confetti on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => createConfetti(40), 500);
+        });
+
+        // Keyboard surprise: Press 'T' for Tahi
+        let tPressCount = 0;
+        document.addEventListener('keydown', (e) => {
+            if (e.key.toLowerCase() === 't') {
+                tPressCount++;
+                if (tPressCount >= 3) {
+                    showMemory(2);
+                    createConfetti(60);
+                    tPressCount = 0;
+                }
+            }
+        });
+
+        // Touch support for mobile
+        let touchStartTime = 0;
+        document.body.addEventListener('touchstart', () => {
+            touchStartTime = Date.now();
+        });
+
+        document.body.addEventListener('touchend', (e) => {
+            const touchDuration = Date.now() - touchStartTime;
+            if (touchDuration > 800) {
+                // Long press - show special message
+                showMemory(3);
+                createConfetti(30);
+            }
+        });
+
+        // Prevent scroll during modal
+        memoryModal.addEventListener('touchmove', (e) => e.preventDefault());
+
+        // Console Easter Egg
+        console.log('%c♡ Happy Birthday Tahira! ♡', 
+            'font-size: 24px; color: #8B1538; font-family: serif; text-shadow: 2px 2px #D4A574;');
+        console.log('%cPress "T" three times for a surprise!', 
+            'font-size: 14px; color: #2A6B5E;');
+    </script>
+</body>
+</html>
